@@ -24,3 +24,7 @@ exports.getEmployeeById = (req, res) =>{
         res.send(employee)
     })
 }
+
+exports.createNewEmployee = (req,res)=>{
+    console.log('creacion de registro: ',req.body)
+}

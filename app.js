@@ -1,8 +1,14 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 // Definicion de parametros de la aplicacion
 let port = process.env.PORT || 3000
+
+// Configuarion de middleware para captura de datos:
+app.use(express.urlencoded({extended: false}))
+
+// Parse de los datos a formato JSON:
+app.use(express.json())
 
 // Adicion de las rutas:
 const employee = require('./src/routes/employee.route')
