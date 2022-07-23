@@ -15,10 +15,26 @@ Employee.getAllEmployee = (result) =>{
             console.log('A ocurrido un error: ',err);
             result(null,err)
         }else{
-            console.log('Ejecutado con exito la consulta de empleados');
             result(null,res)
         }
     })
+}
+
+Employee.getEmployeeById = (id,result)=>{
+    let query = `SELECT * FROM mvc_employee WHERE id_employee = ?;`
+    dbConect.query(query,id, (err,res)=>{
+        if(err){
+            result (null,err);
+        }else{
+            if(res.length == 0){
+                let respuesta = {Status: 201 , Message: "No se encontraron resultados."}
+                result (null,respuesta);
+            }else{
+                result (null,res);
+            }
+        }
+    })
+
 }
 
 module.exports = Employee;

@@ -13,3 +13,14 @@ exports.getEmployeeList = (req, res) =>{
         
     })
 }
+
+exports.getEmployeeById = (req, res) =>{
+    
+    let id = req.params.id
+    EmployeeModel.getEmployeeById(id, (err, employee)=>{
+        if(err)
+            res.send(err)
+        
+        res.send(employee)
+    })
+}
