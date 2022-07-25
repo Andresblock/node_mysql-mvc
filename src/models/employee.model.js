@@ -37,4 +37,16 @@ Employee.getEmployeeById = (id,result)=>{
 
 }
 
+Employee.createNewEmployee = (params, result)=>{
+    let query = 'INSERT INTO mvc_employee SET ?;'
+    dbConect.query(query,[params], (err,res)=>{
+        if(err){
+            result (null,err);
+        }else{
+            result (null,res);
+        }
+    })
+}
+
+
 module.exports = Employee;

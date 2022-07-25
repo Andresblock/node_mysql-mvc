@@ -3,7 +3,7 @@ const EmployeeModel = require('../models/employee.model')
 // Consultar la lista de empleados:
 
 exports.getEmployeeList = (req, res) =>{
-    // res.send({Status: 200, Message: "Entro a la lista de empleados"})
+
     EmployeeModel.getAllEmployee((err, employees)=>{
 
         if(err)
@@ -13,6 +13,8 @@ exports.getEmployeeList = (req, res) =>{
         
     })
 }
+
+// Consulta empleado por identificacion:
 
 exports.getEmployeeById = (req, res) =>{
     
@@ -25,6 +27,14 @@ exports.getEmployeeById = (req, res) =>{
     })
 }
 
+// Creacion de registro de empleado:
+
 exports.createNewEmployee = (req,res)=>{
-    console.log('creacion de registro: ',req.body)
+    let parametros = req.body
+    EmployeeModel.createNewEmployee(parametros,(err, dato)=>{
+        if(err)
+            res.send(err)
+        
+        res.send({Status:200,Message: 'Registro creado correctamente.', Id: dato.insertId})
+    })
 }
