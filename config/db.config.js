@@ -1,15 +1,16 @@
 // Definicion de la conexion a MySQL:
 const mysql = require('mysql');
+require('dotenv').config();
 
 /* Definicion de parametros requeridos:
     Al igual que el puerto en el app.js, es una buena practica tomarlos por las variables de entorno,
     como se especifico en el punto anterior, esto se recomienda realizarlo en ambientes productivos
 */
 
-const host= 'mysql-hwcollector.alwaysdata.net';
-const user= '400380_admin';
-const password= 'Ab12052022';
-const database= 'hwcollector_db';
+const host= process.env.host;
+const user= process.env.user;
+const password= process.env.password;
+const database= process.env.database;
     
 // Definicion del metodo de conexion hacia la base de datos:
 
