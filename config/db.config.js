@@ -6,10 +6,10 @@ const mysql = require('mysql');
     como se especifico en el punto anterior, esto se recomienda realizarlo en ambientes productivos
 */
 
-const host= 'mysql-acdesacomp.alwaysdata.net';
-const user= '229164_agomez';
-const password= 'ab3244262';
-const database= 'acdesacomp_db';
+const host= 'mysql-hwcollector.alwaysdata.net';
+const user= '400380_admin';
+const password= 'Ab12052022';
+const database= 'hwcollector_db';
     
 // Definicion del metodo de conexion hacia la base de datos:
 

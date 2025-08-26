@@ -11,10 +11,13 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 // Adicion de las rutas:
-const employee = require('./src/routes/employee.route')
+const perfil = require('./src/routes/hwperfil.route')
+const catalogo = require('./src/routes/hwcatalogo.route')
 
-// Ruta para empleados:
-app.use('/api/v1/employee',employee)
+// Ruta para perfiles:
+app.use('/api/v1/perfil',perfil)
+// Ruta para catalogo:
+app.use('/api/v1/catalogo',catalogo)
 
 
 app.get('/', (req,res)=>{
