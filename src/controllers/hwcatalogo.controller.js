@@ -4,12 +4,12 @@ const CatalogoModel = require('../models/hwcatalogo.model')
 
 exports.getCatologoList = (req, res) =>{
 
-    CatalogoModel.getAllCatalogo((err, Perfil)=>{
+    CatalogoModel.getAllCatalogo((err, catalogo)=>{
 
         if(err)
             res.send(err)
         
-        res.send(Perfil)
+        res.send(catalogo)
         
     })
 }
@@ -19,11 +19,11 @@ exports.getCatologoList = (req, res) =>{
 exports.getCatalogoById = (req, res) =>{
     
     let id = req.params.id
-    CatalogoModel.getCatalogoById(id, (err, Perfil)=>{
+    CatalogoModel.getCatalogoById(id, (err, catalogo)=>{
         if(err)
             res.send(err)
         
-        res.send(Perfil)
+        res.send(catalogo)
     })
 }
 
