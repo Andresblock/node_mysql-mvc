@@ -1,15 +1,20 @@
 const dbConect = require('../../config/db.config')
 
-let Hwperfil = (perfil) =>{
-    this.nombre = perfil.nombre;
-    this.apellido = perfil.apellido;
-    this.edad = perfil.edad;
+let Hwusuario = (usuario) =>{
+    this.id_usuario = usuario.id_usuario;
+    this.nombre = usuario.nombre;
+    this.apellido = usuario.apellido;
+    this.usuario = usuario.usuario;
+    this.pass = usuario.pass;
+    this.tipo = usuario.tipo;
+    this.fe_creacion = usuario.fe_creacion;
+    this.estado = usuario.estado;
 }
 
 // Lista de perfiles:
 
-Hwperfil.getAllPerfil = (result) =>{
-    let query = `SELECT * FROM hw_user_perfil;`
+Hwusuario.getAllUsuario = (result) =>{
+    let query = `SELECT * FROM usuario;`
     dbConect.query(query,(err,res)=>{
         if(err){
             console.log('A ocurrido un error: ',err);
@@ -20,8 +25,8 @@ Hwperfil.getAllPerfil = (result) =>{
     })
 }
 
-Hwperfil.getPerfilById = (id,result)=>{
-    let query = `SELECT * FROM hw_user_perfil WHERE id_perfil = ?;`
+Hwusuario.getUsuarioById = (id,result)=>{
+    let query = `SELECT * FROM usuario WHERE id_usuario = ?;`
     dbConect.query(query,id, (err,res)=>{
         if(err){
             result (null,err);
@@ -37,8 +42,8 @@ Hwperfil.getPerfilById = (id,result)=>{
 
 }
 
-Hwperfil.createNewPerfil = (params, result)=>{
-    let query = 'INSERT INTO hw_user_perfil SET ?;'
+Hwusuario.createNewUsuario = (params, result)=>{
+    let query = 'INSERT INTO usuario SET ?;'
     dbConect.query(query,[params], (err,res)=>{
         if(err){
             result (null,err);
@@ -49,4 +54,4 @@ Hwperfil.createNewPerfil = (params, result)=>{
 }
 
 
-module.exports = Hwperfil;
+module.exports = Hwusuario;

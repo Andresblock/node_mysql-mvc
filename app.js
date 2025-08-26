@@ -11,11 +11,11 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 
 // Adicion de las rutas:
-const perfil = require('./src/routes/hwperfil.route')
+const usuario = require('./src/routes/hwusuario.route')
 const catalogo = require('./src/routes/hwcatalogo.route')
 
 // Ruta para perfiles:
-app.use('/api/v1/perfil',perfil)
+app.use('/api/v1/usuario',usuario)
 // Ruta para catalogo:
 app.use('/api/v1/catalogo',catalogo)
 

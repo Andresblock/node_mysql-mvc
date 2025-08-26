@@ -1,10 +1,10 @@
-const PerfilModel = require('../models/hwperfil.model')
+const UsuairoModel = require('../models/hwusuario.model')
 
 // Consultar la lista de perfiles:
 
-exports.getPerfilList = (req, res) =>{
+exports.getUsuarioList = (req, res) =>{
 
-    PerfilModel.getAllPerfil((err, Perfil)=>{
+    UsuairoModel.getAllUsuario((err, Perfil)=>{
 
         if(err)
             res.send(err)
@@ -16,10 +16,10 @@ exports.getPerfilList = (req, res) =>{
 
 // Consulta perfil por id:
 
-exports.getPerfilById = (req, res) =>{
+exports.getUusarioById = (req, res) =>{
     
     let id = req.params.id
-    PerfilModel.getPerfilById(id, (err, Perfil)=>{
+    UsuairoModel.getPerfilById(id, (err, Perfil)=>{
         if(err)
             res.send(err)
         
@@ -29,9 +29,9 @@ exports.getPerfilById = (req, res) =>{
 
 // Creacion de registro de perfil:
 
-exports.createNewPerfil = (req,res)=>{
+exports.createNewUsuario = (req,res)=>{
     let parametros = req.body
-    PerfilModel.createNewPerfil(parametros,(err, dato)=>{
+    UsuairoModel.createNewUsuario(parametros,(err, dato)=>{
         if(err)
             res.send(err)
         
