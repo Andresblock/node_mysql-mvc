@@ -1,9 +1,8 @@
 const express = require('express');
-require('dotenv').config();
 const app = express();
 
 // Definicion de parametros de la aplicacion
-let port = process.env.PORT
+let port = process.env.PORT || 3000
 
 // Configuarion de middleware para captura de datos:
 app.use(express.urlencoded({extended: false}))

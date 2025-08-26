@@ -1,16 +1,16 @@
 const dbConect = require('../../config/db.config')
 
 let Hwcatalogo = (catalogo) =>{
+    this.id_foto = catalogo.id_foto;
+    this.url = catalogo.url;
     this.nombre = catalogo.nombre;
-    this.caja = catalogo.apellido;
-    this.anio = catalogo.edad;
-    this.link = catalogo.edad;
+    this.anio = catalogo.anio;
 }
 
 // Lista de carros:
 
 Hwcatalogo.getAllCatalogo = (result) =>{
-    let query = `SELECT * FROM hw_catalogo;`
+    let query = `SELECT * FROM foto_pieza;`
     dbConect.query(query,(err,res)=>{
         if(err){
             console.log('A ocurrido un error: ',err);
@@ -22,7 +22,7 @@ Hwcatalogo.getAllCatalogo = (result) =>{
 }
 
 Hwcatalogo.getCatalogoId = (id,result)=>{
-    let query = `SELECT * FROM hw_catalogo WHERE id_pieza = ?;`
+    let query = `SELECT * FROM foto_pieza WHERE id_foto = ?;`
     dbConect.query(query,id, (err,res)=>{
         if(err){
             result (null,err);
@@ -39,7 +39,7 @@ Hwcatalogo.getCatalogoId = (id,result)=>{
 }
 
 Hwcatalogo.createNewCatalogo = (params, result)=>{
-    let query = 'INSERT INTO hw_catalogo SET ?;'
+    let query = 'INSERT INTO foto_pieza SET ?;'
     dbConect.query(query,[params], (err,res)=>{
         if(err){
             result (null,err);
