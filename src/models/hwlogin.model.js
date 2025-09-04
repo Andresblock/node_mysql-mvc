@@ -5,10 +5,9 @@ let Hwlogin = (usuario) =>{
     this.pass = usuario.pass;
 }
 
-
-Hwlogin.getUsuario = (usuario,result)=>{
-    let query = `SELECT usuario, pass FROM usuario WHERE usuario = ?;`
-    dbConect.query(query,usuario, (err,res)=>{
+Hwlogin.getUsuario = ([usuario,pass],result)=>{
+    let query = `SELECT usuario, pass FROM usuario WHERE usuario = ? and pass = ?;`
+    dbConect.query(query,[usuario, pass], (err,res)=>{
         if(err){
             result (null,err);
         }else{
@@ -19,20 +18,9 @@ Hwlogin.getUsuario = (usuario,result)=>{
                 result (null,res);
             }
         }
+        console.log(`El query resultante es: ${query}`)
     })
 
 }
-
-// Hwusuario.createNewUsuario = (params, result)=>{
-//     let query = 'INSERT INTO usuario SET ?;'
-//     dbConect.query(query,[params], (err,res)=>{
-//         if(err){
-//             result (null,err);
-//         }else{
-//             result (null,res);
-//         }
-//     })
-// }
-
 
 module.exports = Hwlogin;
