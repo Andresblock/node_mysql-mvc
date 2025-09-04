@@ -17,7 +17,7 @@ exports.getCollectionList = (req, res) =>{
 exports.getCollectionById = (req, res) =>{
     
     let id = req.params.id
-    CollectionModel.getCollectionById(id, (err, Collection)=>{
+    CollectionModel.getcollectionById(id, (err, Collection)=>{
         if(err)
             res.send(err)
         
@@ -27,7 +27,7 @@ exports.getCollectionById = (req, res) =>{
 
 
 exports.createNewCollection = (req,res)=>{
-    let parametros = req.body
+    let parametros = req.body           
     CollectionModel.createNewCollection(parametros,(err, dato)=>{
         if(err)
             res.send(err)
