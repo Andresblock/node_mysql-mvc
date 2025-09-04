@@ -3,25 +3,25 @@ const CollectionModel = require('../models/hwcollection.model')
 
 exports.getCollectionList = (req, res) =>{
 
-    CollectionModel.getAllCollection((err, Perfil)=>{
+    CollectionModel.getAllcollection((err, Collection)=>{
 
         if(err)
             res.send(err)
         
-        res.send(Perfil)
+        res.send(Collection)
         
     })
 }
 
 
-exports.getUusarioById = (req, res) =>{
+exports.getCollectionById = (req, res) =>{
     
     let id = req.params.id
-    CollectionModel.getPerfilById(id, (err, Perfil)=>{
+    CollectionModel.getCollectionById(id, (err, Collection)=>{
         if(err)
             res.send(err)
         
-        res.send(Perfil)
+        res.send(Collection)
     })
 }
 
