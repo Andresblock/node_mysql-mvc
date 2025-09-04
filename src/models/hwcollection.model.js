@@ -10,7 +10,17 @@ let Hwcollection = (collection) =>{
 
 
 Hwcollection.getAllcollection = (result) =>{
-    let query = `SELECT * FROM coleccion;`
+    let query = `SELECT 
+	                cl.id_coleccion,
+	                cl.id_usuario,
+	                fp.url,
+	                fp.nombre,
+	                fp.anio,
+	                fp.color,
+	                cl.cantidad
+                FROM coleccion cl
+                LEFT JOIN foto_pieza fp
+                    ON cl.id_foto = fp.id_foto;`
     dbConect.query(query,(err,res)=>{
         if(err){
             console.log('A ocurrido un error: ',err);
@@ -22,7 +32,18 @@ Hwcollection.getAllcollection = (result) =>{
 }
 
 Hwcollection.getcollectionById = (id,result)=>{
-    let query = `SELECT * FROM coleccion WHERE id_usuario = ?;`
+    let query = `SELECT 
+	                cl.id_coleccion,
+	                cl.id_usuario,
+	                fp.url,
+	                fp.nombre,
+	                fp.anio,
+	                fp.color,
+	                cl.cantidad
+                FROM coleccion cl
+                LEFT JOIN foto_pieza fp
+                    ON cl.id_foto = fp.id_foto
+                WHERE cl.id_usuario = ?;`
     dbConect.query(query,id, (err,res)=>{
         if(err){
             result (null,err);
