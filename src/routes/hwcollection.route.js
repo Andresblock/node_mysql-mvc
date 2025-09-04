@@ -6,6 +6,6 @@ const CollectionController = require('../controllers/hwcollection.controller')
 
 router.get('/',CollectionController.getCollectionList)
 router.post('/',CollectionController.createNewCollection)
-router.get('/:id',CollectionController.getUusarioById)
+router.get('/:id',CollectionController.getCollectionById)
 
 module.exports = router
