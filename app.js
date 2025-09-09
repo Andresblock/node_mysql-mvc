@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 // Definicion de parametros de la aplicacion
 let port = process.env.PORT || 3000
 
 // Configuarion de middleware para captura de datos:
 app.use(express.urlencoded({extended: false}))
+app.use(cors());
 
 // Parse de los datos a formato JSON:
 app.use(express.json())
