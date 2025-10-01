@@ -18,7 +18,8 @@ Hwlogin.getUsuario = ([usuario,pass],result)=>{
             }else{
                 const user = { usuario, pass }; 
                 const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1h' });  
-                result (null,{Status: 200 , usuario: res.usuario, token: token});
+                let respuesta = {Status: 200 , id: res[0].id_usuario , usuario: res[0].usuario, tipo: res[0].tipo, token: token}
+                result (null,respuesta);
             }
         }
         
