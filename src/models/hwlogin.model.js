@@ -1,4 +1,5 @@
 const dbConect = require('../../config/db.config')
+const jwt = require('jsonwebtoken');
 
 let Hwlogin = (usuario) =>{
     this.usuario = usuario.usuario;
@@ -15,11 +16,15 @@ Hwlogin.getUsuario = ([usuario,pass],result)=>{
                 let respuesta = {Status: 201 , Message: "No se encontraron resultados."}
                 result (null,respuesta);
             }else{
-                result (null,res);
+                const user = { usuario, pass }; 
+                const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1h' });  
+                result (null,{Status: 200 , usuario: res.usuario, token: token});
             }
         }
-        console.log(`El query resultante es: ${query}`)
+        
     })
+
+    
 
 }
 
