@@ -7,7 +7,7 @@ let Hwlogin = (usuario) =>{
 }
 
 Hwlogin.getUsuario = ([usuario,pass],result)=>{
-    let query = `SELECT usuario, pass FROM usuario WHERE usuario = ? and pass = ?;`
+    let query = `SELECT id_usuario, usuario, tipo FROM usuario WHERE usuario = ? and pass = ?;`
     dbConect.query(query,[usuario, pass], (err,res)=>{
         if(err){
             result (null,err);
